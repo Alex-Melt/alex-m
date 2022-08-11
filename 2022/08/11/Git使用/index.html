@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Git使用 | Hexo</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Git分类 常见的版本控制工具   Git  SVN  CVS  VSS  TFS ​    版本控制分类   本地版本控制 集中版本控制 SVN CVS VSS 分布式版本控制 Git   GIt与SVN最主要的区别  SVN是集中版本控制系统，版本库是集中放在中央服务器，工作时用的都是自己的电脑，首先得从中央服务器得到最新的版本，然后工作，完成工作后，将完成的工作推送到中央服务器，必须联网才能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git使用">
+<meta property="og:url" content="http://example.com/2022/08/11/Git%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Git分类 常见的版本控制工具   Git  SVN  CVS  VSS  TFS ​    版本控制分类   本地版本控制 集中版本控制 SVN CVS VSS 分布式版本控制 Git   GIt与SVN最主要的区别  SVN是集中版本控制系统，版本库是集中放在中央服务器，工作时用的都是自己的电脑，首先得从中央服务器得到最新的版本，然后工作，完成工作后，将完成的工作推送到中央服务器，必须联网才能">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/Git-01.png">
+<meta property="og:image" content="http://example.com/img/Git-02.png">
+<meta property="og:image" content="http://example.com/img/Git-03.png">
+<meta property="article:published_time" content="2022-08-11T00:59:28.669Z">
+<meta property="article:modified_time" content="2022-08-10T16:19:05.590Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/Git-01.png">
+  
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">I&#39;m a developer.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Git使用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/11/Git%E4%BD%BF%E7%94%A8/" class="article-date">
+  	<time datetime="2022-08-11T00:59:28.669Z" itemprop="datePublished">2022-08-11</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Git使用
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Git分类"><a href="#Git分类" class="headerlink" title="Git分类"></a>Git分类</h2><blockquote>
+<p>常见的版本控制工具</p>
+</blockquote>
+<ul>
+<li><p>Git</p>
+</li>
+<li><p>SVN</p>
+</li>
+<li><p>CVS</p>
+</li>
+<li><p>VSS</p>
+</li>
+<li><p>TFS</p>
+<p>​</p>
+</li>
+</ul>
+<blockquote>
+<p>版本控制分类</p>
+</blockquote>
+<ol>
+<li>本地版本控制</li>
+<li>集中版本控制 SVN CVS VSS</li>
+<li>分布式版本控制 Git</li>
+</ol>
+<blockquote>
+<p>GIt与SVN最主要的区别</p>
+</blockquote>
+<p>SVN是集中版本控制系统，版本库是集中放在中央服务器，工作时用的都是自己的电脑，首先得从中央服务器得到最新的版本，然后工作，完成工作后，将完成的工作推送到中央服务器，必须联网才能工作，对网络带宽要求较高 。</p>
+<p>Git是分布式版本控制，没有中央服务器，每个人的电脑就是一个完整的版本库，工作时不需要联网，协同的方法：比如自己在电脑上修改了A，其他人也在电脑上修改了A,这时只需把各自的修改推送给对方。</p>
+<h2 id="安装Git以及配置"><a href="#安装Git以及配置" class="headerlink" title="安装Git以及配置"></a>安装Git以及配置</h2><blockquote>
+<p>使用镜像下载<a target="_blank" rel="noopener" href="https://registry.npmmirror.com/binary.html?path=git-for-windows">https://registry.npmmirror.com/binary.html?path=git-for-windows</a></p>
+</blockquote>
+<p>卸载：先清理环境变量，后卸载</p>
+<blockquote>
+<p>启动Git</p>
+</blockquote>
+<p>安装后会在菜单生成3个程序：</p>
+<ul>
+<li>Git Bash：Unix与Linux风格的命令行，使用最多，</li>
+<li>Git CMD：Windows风格的命令行</li>
+<li>Git GUI：图形界面的Git，不建议初学者使用</li>
+</ul>
+<blockquote>
+<p>基本的Linux命令</p>
+</blockquote>
+<p>1）、cd : 改变目录。</p>
+<p>2）、cd . . 回退到上一个目录，直接cd进入默认目录</p>
+<p>3）、pwd : 显示当前所在的目录路径。</p>
+<p>4）、ls(ll): 都是列出当前目录中的所有文件，只不过ll(两个ll)列出的内容更为详细。</p>
+<p>5）、touch : 新建一个文件 如 touch index.js 就会在当前目录下新建一个index.js文件。</p>
+<p>6）、rm: 删除一个文件, rm index.js 就会把index.js文件删除。</p>
+<p>7）、mkdir: 新建一个目录,就是新建一个文件夹。</p>
+<p>8）、rm -r : 删除一个文件夹, rm -r src 删除src目录</p>
+<p>9）、mv 移动文件, mv index.html src index.html 是我们要移动的文件, src 是目标文件夹,当然, 这样写,</p>
+<p>必须保证文件和目标文件夹在同一目录下。</p>
+<p>10）、reset 重新初始化终端&#x2F;清屏。</p>
+<p>11）、clear 清屏。</p>
+<p>12）、history 查看命令历史。</p>
+<p>13）、help 帮助。</p>
+<p>14）、exit 退出。</p>
+<p>15）、#表示注释</p>
+<blockquote>
+<p>Git配置</p>
+</blockquote>
+<p>查看配置 &#x3D;&#x3D;git config -l&#x3D;&#x3D;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#查看系统config </span><br><span class="line">git config --system --list </span><br><span class="line"></span><br><span class="line">#查看当前用户（global）配置 </span><br><span class="line">git config --global --list</span><br></pre></td></tr></table></figure>
+
+<p>Git相关的配置文件：</p>
+<ol>
+<li>Git\mingw64\etc\gitconfifig ： Git 安装目录下的 gitconfifig –system 系统级</li>
+<li>C:\Users\Administrator\ .gitconfifig 只适用于当前登录用户的配置 –global 全局</li>
+</ol>
+<p>这里可以直接编辑配置文件，通过命令设置后会响应到这里</p>
+<blockquote>
+<p>设置用户名与邮箱（用户标识，必要）</p>
+</blockquote>
+<p>当你安装Git后首先要做的事情是设置你的用户名称和e-mail地址。这是非常重要的，因为每次Git提交都会使用该信息。它被永远的嵌入到了你的提交中：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;***&quot; #名称 </span><br><span class="line">git config --global user.email **@qq.com #邮箱 </span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Git基本理论"><a href="#Git基本理论" class="headerlink" title="Git基本理论"></a>Git基本理论</h2><blockquote>
+<p>工作区域</p>
+</blockquote>
+<p>Git本地有三个工作区域：工作目录（Working Directory）、暂存区(Stage&#x2F;Index)、资源库(Repository或Git Directory)。如果在加上远程的git仓库(Remote Directory)就可以分为四个工作区域。文件在这四个区域之间的转换关系如下：<img src="/img/Git-01.png"></p>
+<ul>
+<li><strong>Workspace</strong>：工作区，就是你平时存放项目代码的地方</li>
+<li><strong>Index &#x2F; Stage</strong>：暂存区，用于临时存放你的改动，事实上它只是一个文件，保存即将提交到文件列表信息</li>
+<li><strong>Repository</strong>：仓库区（或本地仓库），就是安全存放数据的位置，这里面有你提交到所有版本的数据。其中HEAD指向最新放入仓库的版本</li>
+<li><strong>Remote</strong>：远程仓库，托管代码的服务器，可以简单的认为是你项目组中的一台电脑用于远程数据交换</li>
+</ul>
+<p>本地的三个区域确切的说应该是git仓库中HEAD指向的版本：</p>
+<p><img src="/img/Git-02.png" alt="Git-02"></p>
+<ul>
+<li><strong>Directory</strong>：使用Git管理的一个目录，也就是一个仓库，包含我们的工作空间和Git的管理空间。</li>
+<li><strong>WorkSpace</strong>：需要通过Git进行版本控制的目录和文件，这些目录和文件组成了工作空间。</li>
+<li><strong>.git</strong>：存放Git管理信息的目录，初始化仓库的时候自动创建。</li>
+<li><strong>Index&#x2F;Stage</strong>：暂存区，或者叫待提交更新区，在提交进入repo之前，我们可以把所有的更新放在暂存区。</li>
+<li><strong>Local Repo</strong>：本地仓库，一个存放在本地的版本库；HEAD会只是当前的开发分支（branch）。</li>
+<li><strong>Stash</strong>：隐藏，是一个工作状态保存栈，用于保存&#x2F;恢复WorkSpace中的临时状态。</li>
+</ul>
+<blockquote>
+<p>工作流程</p>
+</blockquote>
+<p>git的工作流程一般是：</p>
+<ol>
+<li>在工作目录中添加，修改文件</li>
+<li>将要进行版本管理的问文件放入暂存区</li>
+<li>将暂存区的文件提交到git仓库</li>
+</ol>
+<p>因此，git管理的文件有三种状态：已修改（modifified）,已暂存（staged）,已提交(committed)</p>
+<h2 id="Git项目搭建"><a href="#Git项目搭建" class="headerlink" title="Git项目搭建"></a>Git项目搭建</h2><blockquote>
+<p>创建工作目录与常用命令</p>
+</blockquote>
+<p>工作目录（WorkSpace)一般就是你希望Git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。</p>
+<p><img src="/img/Git-03.png" alt="Git-03"></p>
+<blockquote>
+<p>本地仓库搭建</p>
+</blockquote>
+<p>创建本地仓库的方法有两种：一种是创建全新的仓库，另一种是克隆远程仓库.</p>
+<ol>
+<li><p>创建全新的仓库，需要用GIT管理的项目的根目录执行：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在当前目录新建一个Git代码库 </span><br><span class="line">$ git init 12</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行后可以看到，仅仅在项目目录多出了一个.git目录，关于版本等的所有信息都在这个目录里面</p>
+</li>
+</ol>
+<blockquote>
+<p>克隆远程仓库</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 克隆一个项目和它的整个代码历史(版本信息) </span><br><span class="line">$ git clone [url]</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="Git文件操作"><a href="#Git文件操作" class="headerlink" title="Git文件操作"></a>Git文件操作</h2><blockquote>
+<p>文件4种状态</p>
+</blockquote>
+<ul>
+<li><strong>Untracked</strong>: 未跟踪, 此文件在文件夹中, 但并没有加入到git库, 不参与版本控制. 通过 <strong>git add</strong>状态变为 <strong>Staged</strong> .</li>
+<li><strong>Unmodify</strong>: 文件已经入库, 未修改, 即版本库中的文件快照内容与文件夹中完全一致. 这种类型的文件有两种去处, 如果它被修改, 而变为 Modified . 如果使用 git rm 移出版本库, 则成为Untracked 文件</li>
+<li><strong>Modifified</strong>: 文件已修改, 仅仅是修改, 并没有进行其他的操作. 这个文件也有两个去处, 通过 git add 可进入暂存 staged 状态, 使用 git checkout 则丢弃修改过, 返回到 unmodify 状态,这个 git checkout 即从库中取出文件, 覆盖当前修改 !</li>
+<li><strong>Staged</strong>: 暂存状态. 执行 git commit 则将修改同步到库中, 这时库中的文件和本地文件又变为一致, 文件为 Unmodify 状态. 执行 git reset HEAD filename 取消暂存, 文件状态为Modified</li>
+</ul>
+<blockquote>
+<p>查看文件状态</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#查看指定文件状态</span><br><span class="line">git status [filename] </span><br><span class="line"></span><br><span class="line">#查看所有文件状态 </span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"># git add .			添加所有文件到暂存区</span><br><span class="line"># git commit -m	&quot;内容&quot;	提交暂存区中的内容到本地仓库 -m 提交信息</span><br></pre></td></tr></table></figure>
+
+
+
+<blockquote>
+<p>忽略文件</p>
+</blockquote>
+<p>主目录下建立”.gitignore”文件，此文件有如下规则:</p>
+<ol>
+<li><p>忽略文件中的空行或以井号（#）开始的行将会被忽略。</p>
+</li>
+<li><p>可以使用Linux通配符。例如：星号（*）代表任意多个字符，问号（？）代表一个字符，方括号[abc]）代表可选字符范围，大括号（{string1,string2,…}）代表可选的字符串等。</p>
+</li>
+<li><p>如果名称的最前面有一个感叹号（!），表示例外规则，将不被忽略。</p>
+</li>
+<li><p>如果名称的最前面是一个路径分隔符（&#x2F;），表示要忽略的文件在此目录下，而子目录中的文件不忽略。</p>
+</li>
+<li><p>如果名称的最后面是一个路径分隔符（&#x2F;），表示要忽略的是此目录下该名称的子目录，而非文件默认文件或目录都忽略）。</p>
+</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#为注释 </span><br><span class="line">*.txt 		   #忽略所有 .txt结尾的文件 </span><br><span class="line">!lib.txt 	   #但lib.txt除外 </span><br><span class="line">/temp 		   #仅忽略项目根目录下的TODO文件,不包括其它目录temp build/ 	     #忽略build/目录下的所有文件 </span><br><span class="line">doc/*.txt 	  #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt</span><br></pre></td></tr></table></figure>
+
+
+
+<p>##git分支中常用指令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 列出所有本地分支 </span><br><span class="line">git branch </span><br><span class="line"></span><br><span class="line"># 列出所有远程分支 </span><br><span class="line">git branch -r </span><br><span class="line"></span><br><span class="line"># 新建一个分支，但依然停留在当前分支 </span><br><span class="line">git branch [branch-name] </span><br><span class="line"></span><br><span class="line"># 新建一个分支，并切换到该分支 </span><br><span class="line">git checkout -b [branch] </span><br><span class="line"></span><br><span class="line"># 合并指定分支到当前分支 </span><br><span class="line">git merge [branch] </span><br><span class="line"></span><br><span class="line"># 删除分支 </span><br><span class="line">git branch -d [branch-name] </span><br><span class="line"></span><br><span class="line"># 删除远程分支 </span><br><span class="line">git push origin --delete [branch-name] </span><br><span class="line">$ git branch -dr [remote/branch] </span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="使用Gitee或者Github"><a href="#使用Gitee或者Github" class="headerlink" title="使用Gitee或者Github"></a>使用Gitee或者Github</h2><p>设置本机绑定SSH公钥，实现免密码登录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 进入 C:\Users\Administrator\.ssh 目录 </span><br><span class="line"># 生成公钥 </span><br><span class="line">ssh-keygen -t rsa -C &quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>测试是否成功</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br><span class="line">ssh -T git@gitee.com</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/08/11/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 John Doe
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Alex-Melt/alex-melt.github.io" target="_blank">Alex</a>
+        </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
