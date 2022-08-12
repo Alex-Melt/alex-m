@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>基于JavaWeb的邮件发送 | Melt</title>
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前提 邮箱实现了SMTP，POP等服务，并且得到了有关的授权码  概述 使用Java发送Email需要JavaMail和Java Activation Framework  得到两个jar包：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于JavaWeb的邮件发送">
+<meta property="og:url" content="https://alex-melt.github.io/2022/08/12/%E5%9F%BA%E4%BA%8EJavaWeb%E7%9A%84%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/index.html">
+<meta property="og:site_name" content="Melt">
+<meta property="og:description" content="前提 邮箱实现了SMTP，POP等服务，并且得到了有关的授权码  概述 使用Java发送Email需要JavaMail和Java Activation Framework  得到两个jar包：">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-08-12T07:09:30.315Z">
+<meta property="article:modified_time" content="2022-08-12T09:06:25.861Z">
+<meta property="article:author" content="赵浩栋">
+<meta property="article:tag" content="JavaWeb">
+<meta property="article:tag" content="Email">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternative" href="/atom.xml" title="Melt" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/img/favicon.ico">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+<body>
+  <div id="container">
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="/portrait/aniya.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+			<h1 class="header-author"><a href="/">赵浩栋</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav>
+						total 8
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=1440570723&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/C/" style="font-size: 10px;">C++</a> <a href="/tags/Email/" style="font-size: 10px;">Email</a> <a href="/tags/Git/" style="font-size: 20px;">Git</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/JavaWeb/" style="font-size: 20px;">JavaWeb</a> <a href="/tags/Maven/" style="font-size: 10px;">Maven</a> <a href="/tags/Mysql/" style="font-size: 10px;">Mysql</a> <a href="/tags/Node-js/" style="font-size: 10px;">Node.js</a> <a href="/tags/Vs-code/" style="font-size: 10px;">Vs-code</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/Alex-Melt">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">When you have eliminated the impossible, whatever remains, however improbable, must be the truth. As it turned out, i&#39;m a developer.</div>
+				</section>
+				
+			</div>
+			
+		</div>
+
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="/portrait/aniya.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-基于JavaWeb的邮件发送" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/12/%E5%9F%BA%E4%BA%8EJavaWeb%E7%9A%84%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/" class="article-date">
+  	<time datetime="2022-08-12T07:09:30.315Z" itemprop="datePublished">2022-08-12</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      基于JavaWeb的邮件发送
+      
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Email/" rel="tag">Email</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaWeb/" rel="tag">JavaWeb</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/">邮件发送</a>
+	</div>
+
+
+        
+	
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h2><blockquote>
+<p>邮箱实现了SMTP，POP等服务，并且得到了有关的授权码</p>
+</blockquote>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>使用<strong>Java</strong>发送<strong>Email</strong>需要JavaMail和Java Activation Framework</p>
+</blockquote>
+<p>得到两个jar包：</p>
+<span id="more"></span>
+
+<ul>
+<li>mail.jar</li>
+<li>activation.jar</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--相关maven--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.activation<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>activation<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>javax.mail<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mail<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.4.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">doPost</span><span class="params">(HttpServletRequest req, HttpServletResponse resp)</span> <span class="keyword">throws</span> ServletException, IOException &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">name</span> <span class="operator">=</span> req.getParameter(<span class="string">&quot;name&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span> req.getParameter(<span class="string">&quot;password&quot;</span>);</span><br><span class="line">            <span class="type">String</span> <span class="variable">email</span> <span class="operator">=</span> req.getParameter(<span class="string">&quot;email&quot;</span>);</span><br><span class="line">            <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">User</span>(name, password, email);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//用户注册后给其发送邮件，使用线程来发送，防止出现耗时，和网站注册人数过多</span></span><br><span class="line">            <span class="type">Sendmail</span> <span class="variable">send</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Sendmail</span>(user);</span><br><span class="line">            send.start();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//注册用户</span></span><br><span class="line">            req.setAttribute(<span class="string">&quot;message&quot;</span>,<span class="string">&quot;注册成功，发送了一封邮件给你&quot;</span>);</span><br><span class="line">            req.getRequestDispatcher(<span class="string">&quot;info.jsp&quot;</span>).forward(req,resp);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            req.setAttribute(<span class="string">&quot;message&quot;</span>,<span class="string">&quot;注册失败&quot;</span>);</span><br><span class="line">            req.getRequestDispatcher(<span class="string">&quot;index.jsp&quot;</span>).forward(req,resp);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="工具类"><a href="#工具类" class="headerlink" title="工具类"></a>工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> com.zhao.pojo.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.mail.*;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.InternetAddress;</span><br><span class="line"><span class="keyword">import</span> javax.mail.internet.MimeMessage;</span><br><span class="line"><span class="keyword">import</span> java.util.Properties;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//网站三秒原则</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Sendmail</span> <span class="keyword">extends</span> <span class="title class_">Thread</span>&#123;</span><br><span class="line">  	<span class="comment">//设置发送邮件人的信息，以及授权码</span></span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">from</span> <span class="operator">=</span><span class="string">&quot;*****@qq.com&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">username</span> <span class="operator">=</span><span class="string">&quot;*****@qq.com&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">password</span> <span class="operator">=</span><span class="string">&quot;*****&quot;</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">String</span> <span class="variable">host</span> <span class="operator">=</span><span class="string">&quot;smtp.qq.com&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> User user;</span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">Sendmail</span><span class="params">(User user)</span>&#123;</span><br><span class="line">        <span class="built_in">this</span>.user=user;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">  	<span class="comment">//c重写thread的run方法</span></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//复杂文件，包含图片</span></span><br><span class="line">            <span class="type">Properties</span> <span class="variable">prop</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Properties</span>();</span><br><span class="line">            prop.setProperty(<span class="string">&quot;mail.host&quot;</span>,<span class="string">&quot;smtp.qq.com&quot;</span>);<span class="comment">//设置qq邮件服务器</span></span><br><span class="line">            prop.setProperty(<span class="string">&quot;mail.transport.protocol&quot;</span>,<span class="string">&quot;smtp&quot;</span>);<span class="comment">//邮件发送协议</span></span><br><span class="line">            prop.setProperty(<span class="string">&quot;mail.smtp.auth&quot;</span>,<span class="string">&quot;true&quot;</span>);<span class="comment">//验证用户名密码</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//===============qq还得设置ssl加密</span></span><br><span class="line">            <span class="type">MailSSLSocketFactory</span> <span class="variable">sf</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MailSSLSocketFactory</span>();</span><br><span class="line">            sf.setTrustAllHosts(<span class="literal">true</span>);</span><br><span class="line">            prop.put(<span class="string">&quot;mail.smtp.ssl.enable&quot;</span>,<span class="string">&quot;true&quot;</span>);</span><br><span class="line">            prop.put(<span class="string">&quot;mail.smtp.ssl.socketFactory&quot;</span>,sf);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//使用JavaMail发送邮件五步骤</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//1.创建定义整个应用程序所欲要的换陷阱信息session,=============qq才有</span></span><br><span class="line">            <span class="type">Session</span> <span class="variable">session</span> <span class="operator">=</span> Session.getDefaultInstance(prop, <span class="keyword">new</span> <span class="title class_">Authenticator</span>() &#123;</span><br><span class="line">                <span class="meta">@Override</span></span><br><span class="line">                <span class="keyword">protected</span> PasswordAuthentication <span class="title function_">getPasswordAuthentication</span><span class="params">()</span> &#123;</span><br><span class="line">                    <span class="comment">//发件人邮件用户名，授权码</span></span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">PasswordAuthentication</span>(<span class="string">&quot;******@qq.com&quot;</span>, <span class="string">&quot;授权码&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//2.开启session的debug模式，查看邮件发送状态</span></span><br><span class="line">            session.setDebug(<span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//通过session得到transport对象</span></span><br><span class="line">            <span class="type">Transport</span> <span class="variable">ts</span> <span class="operator">=</span> session.getTransport();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//3.使用用户的用户名，授权码链接</span></span><br><span class="line">            ts.connect(host,username,password);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//4.创建文件</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">//创建邮件对象</span></span><br><span class="line">            <span class="type">MimeMessage</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MimeMessage</span>(session);</span><br><span class="line"></span><br><span class="line">            <span class="comment">//指名邮件的发件人</span></span><br><span class="line">            message.setFrom(<span class="keyword">new</span> <span class="title class_">InternetAddress</span>(from));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//指名邮件的收件人</span></span><br><span class="line">            message.setRecipient(Message.RecipientType.TO,<span class="keyword">new</span> <span class="title class_">InternetAddress</span>(user.getEmail()));</span><br><span class="line"></span><br><span class="line">            <span class="comment">//邮件的标题</span></span><br><span class="line">            message.setSubject(<span class="string">&quot;用户注册邮件&quot;</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">////准备图片</span></span><br><span class="line">            <span class="comment">//MimeBodyPart image = new MimeBodyPart();</span></span><br><span class="line">            <span class="comment">//DataHandler dh = new DataHandler(new FileDataSource(&quot;F:\\IDEA\\workspace\\邮件发送\\target\\classes\\1.png&quot;));</span></span><br><span class="line">            <span class="comment">//image.setDataHandler(dh);</span></span><br><span class="line">            <span class="comment">//image.setContentID(&quot;1.png&quot;);</span></span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            <span class="comment">////准备附件</span></span><br><span class="line">            <span class="comment">//MimeBodyPart bodyPart = new MimeBodyPart();</span></span><br><span class="line">            <span class="comment">//bodyPart.setDataHandler(new DataHandler(new FileDataSource(&quot;F:\\IDEA\\workspace\\邮件发送\\target\\classes\\db.properties&quot;)));</span></span><br><span class="line">            <span class="comment">//bodyPart.setFileName(&quot;db.properties&quot;);</span></span><br><span class="line">			<span class="comment">//</span></span><br><span class="line">            <span class="comment">////邮件的内容</span></span><br><span class="line">            <span class="comment">//MimeBodyPart text = new MimeBodyPart();</span></span><br><span class="line">            <span class="comment">//text.setContent(&quot;这不只是一封邮件带图片&lt;img src=&#x27;cid:1.png&#x27;&gt;邮件&quot;,&quot;text/html;charset=utf-8&quot;);</span></span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            <span class="comment">////描述数据关系</span></span><br><span class="line">            <span class="comment">//MimeMultipart mm = new MimeMultipart();</span></span><br><span class="line">            <span class="comment">//mm.addBodyPart(text);</span></span><br><span class="line">            <span class="comment">//mm.addBodyPart(image);</span></span><br><span class="line">            <span class="comment">//mm.setSubType(&quot;related&quot;);</span></span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            <span class="comment">////将这两个拼接的设置为主体</span></span><br><span class="line">            <span class="comment">//MimeBodyPart contentText = new MimeBodyPart();</span></span><br><span class="line">            <span class="comment">//contentText.setContent(mm);</span></span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            <span class="comment">////拼接附件</span></span><br><span class="line">            <span class="comment">//MimeMultipart allFile = new MimeMultipart();</span></span><br><span class="line">            <span class="comment">//allFile.addBodyPart(bodyPart);</span></span><br><span class="line">            <span class="comment">//allFile.addBodyPart(contentText);</span></span><br><span class="line">            <span class="comment">//mm.setSubType(&quot;mixed&quot;);</span></span><br><span class="line">            <span class="comment">//</span></span><br><span class="line">            String info=<span class="string">&quot;恭喜您注册成功，您的用户名：&quot;</span>+user.getName()+<span class="string">&quot;,您的密码：&quot;</span>+user.getPassword()+<span class="string">&quot;,请妥善保管&quot;</span>;</span><br><span class="line">            message.setContent(info,<span class="string">&quot;text/html;charset=utf-8&quot;</span>);</span><br><span class="line">            message.saveChanges();</span><br><span class="line"></span><br><span class="line">            <span class="comment">//5.发送邮件</span></span><br><span class="line">            ts.sendMessage(message,message.getAllRecipients());</span><br><span class="line"></span><br><span class="line">            <span class="comment">//6.关闭连接</span></span><br><span class="line">            ts.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2022/08/12/%E5%9F%BA%E4%BA%8EJavaWeb%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">&lt;</strong>
+      <div class="article-nav-title">
+        
+          基于JavaWeb的文件上传
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/08/11/Resource%E8%B5%84%E6%BA%90%E6%89%BE%E4%B8%8D%E5%88%B0%E9%97%AE%E9%A2%98/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Resource资源找不到问题</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+
+
+
+
+</div>
+      <footer id="footer">
+ 
+  <div class="outer">
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 赵浩栋
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/Alex-Melt/alex-melt.github.io" target="_blank">Alex</a>
+        </div>
+    </div>
+  </div>
+</footer>
+
+
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
