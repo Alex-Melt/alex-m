@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>LeetCode-9回文数</title>
+      <link href="/2022/08/19/LeetCode-9%E5%9B%9E%E6%96%87%E6%95%B0/"/>
+      <url>/2022/08/19/LeetCode-9%E5%9B%9E%E6%96%87%E6%95%B0/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>给你一个整数 <code>x</code> ，如果 <code>x</code> 是一个回文整数，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p></blockquote><p><em>回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</em></p><span id="more"></span><h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><ul><li>方法一：将整数转变为字符串，采用字符串下标逆向遍历，判断两个字符串是否相等</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#实现方法</span></span><br><span class="line">Class Solution:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">isPalindrome</span>(<span class="params">self,x:<span class="built_in">int</span></span>)-&gt;<span class="built_in">bool</span>:</span><br><span class="line">        y=<span class="built_in">str</span>(x)</span><br><span class="line">        <span class="keyword">return</span> y[::-<span class="number">1</span>]==y</span><br><span class="line">    </span><br><span class="line">answer=Solution()</span><br><span class="line"><span class="built_in">print</span>(answer.isPalindrome(<span class="number">478</span>))</span><br></pre></td></tr></table></figure><ul><li>方法二：依次判断整数的首位与尾位</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Spring中事务属性</title>
       <link href="/2022/08/15/Spring%E4%BA%8B%E5%8A%A1%E5%B1%9E%E6%80%A7/"/>
       <url>/2022/08/15/Spring%E4%BA%8B%E5%8A%A1%E5%B1%9E%E6%80%A7/</url>
